@@ -294,7 +294,7 @@ img {
 }
 
 .education__time {
-  padding: 1rem;
+  padding-right: 1rem;
 }
 
 .education__rounder {
@@ -329,6 +329,34 @@ img {
 
 .education__year {
   font-size: var(--small-font-size);
+}
+
+.education__status {
+  display: inline-block;
+  text-align: center;
+  padding: .15rem .5rem;
+  margin-bottom: .25rem;
+  font-size: var(--small-font-size);
+  font-weight: var(--font-medium);
+  border-radius: .25rem;
+  border: 2px solid transparent;
+  letter-spacing: .05rem;
+  color: var(--title-color);
+}
+
+/* Start / Inicio */
+.education__status[data-status="start"] {
+  background-color: #3498db;
+}
+
+/* In Process / En proceso */
+.education__status[data-status="process"] {
+  background-color: #f1c40f;
+}
+
+/* Finish / Finalizado */
+.education__status[data-status="finish"] {
+  background-color: #2ecc71;
 }
 
 /* Terminar el estado educativo*/
