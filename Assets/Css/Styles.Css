@@ -45,6 +45,39 @@ html {
   scroll-behavior: smooth;
 }
 
+/*==========  Social ==========*/
+.linkedin {color: #0a66c2;}
+.facebook {color: #1877f2;}
+.youtube {color: #ff0000;}
+.github {color: #000;}
+
+/*==========  Frontend ==========*/
+.html {color: #E44D26;}
+.css {color: #2965F1;}
+.js {color: #F7DF1E;}
+.react {color: #61DAFB;}
+.angular {color: #DD0031;}
+
+/*==========  Backend ==========*/
+.java {color: #F89820;}
+.spring {color: #6DB33F;}
+.python {color: #3776AB;}
+
+/*==========  Databases ==========*/
+.mysql {color: #00758F;}
+.mongo {color: #47A248;}
+.redis {color: #DC382D;}
+
+/*========== Tools ==========*/
+.git {color: #F05032;}
+.docker {color: #2496ED;}
+
+/*========== Colores contacto ==========*/
+.location { color: #ff4757; }
+.mail { color: #1e90ff; }
+.phone { color: #2ed573; }
+
+
 /*========== Variables Dark theme ==========*/
 
 
@@ -240,6 +273,21 @@ img {
   font-size: var(--small-font-size);
 }
 
+.location:hover {
+  transform: scale(1.2);
+  transition: .2s ease;
+}
+
+.mail:hover {
+  transform: scale(1.2);
+  transition: .2s ease;
+}
+
+.phone:hover {
+  transform: scale(1.2);
+  transition: .2s ease;
+}
+
 .home__icon {
   font-size: 1.2rem;
   margin-right: .25rem;
@@ -342,6 +390,7 @@ img {
   border: 2px solid transparent;
   letter-spacing: .05rem;
   color: var(--title-color);
+  align-items: center;
 }
 
 /* Start / Inicio */
@@ -362,7 +411,36 @@ img {
 /* Terminar el estado educativo*/
 
 /*========== SKILLS AND LANGUAGES ==========*/
+.skills__content {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+}
 
+.skills__name {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--mb-3);
+  font-size: var(--small-font-size);
+}
+
+.skills__title {
+  font-size: var(--h3-font-size);
+  margin-bottom: var(--mb-1);
+}
+
+.skills__icon {
+  font-size: 1.2rem;
+  margin-right: .6rem;
+  width: 22px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #ffff;
+}
+
+.skills__name:hover .skills__icon {
+  transform: scale(1.2);
+  transition: .2s ease;
+}
 
 /*========== CERTIFICATES ==========*/
 

@@ -32,6 +32,7 @@
 
     <!--========== Box Icons ==========-->
     <!-- Basic Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
     <link href="https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css" rel="stylesheet" />
     <!-- Filled Icons -->
     <link href="https://cdn.boxicons.com/3.0.8/fonts/filled/boxicons-filled.min.css" rel="stylesheet" />
@@ -112,30 +113,30 @@
                     <!-- Theme change button -->
                     <div class="home__container section bd-grid">
                         <div class="home__data bd-grid">
-                            <img src="Assets/Img/Perfil.jpg" alt="Foto de Perfil de Victor Cast2" class="home__img" />
+                            <img src="Assets/Img/Perfil.jpg" loading="eager" alt="Foto de Perfil de Victor Cast2"
+                                class="home__img" />
 
-                            <h1 class="home__title">Victor <b>Castillo</b></h1>
+                            <h1 class="home__title">Victor José Castillo Castro</h1>
                             <h3 class="home__profession">Backend Developert</h3>
 
                             <!-- Button to generate and download the pdf. Available for desktop. -->
                             <div>
-                                <a download="" href="Assets/PDF/VictorCast2CV.pdf"
+                                <a download="" loading="lazy" href="Assets/PDF/VictorCast2CV.pdf"
                                     class="home__button-movil">Download</a>
                             </div>
                         </div>
 
                         <div class="home__address bd-grid">
                             <span class="home__information">
-                                <i class="bxr bx-location home__icon"></i> Urb Villas De La
-                                Candelaria - Cartagane de Indias (Colombia)
+                                <i class="bxr bx-location home__icon location"></i> Urb Villas De La
+                                Candelaria - Cartagena de Indias, Colombia
                             </span>
                             <span class="home__information">
-                                <i class="bxr bx-envelope-alt home__icon"></i>
+                                <i class="bxr bx-envelope-alt home__icon mail"></i>
                                 castillocastrovictorjose@hotmail.com
                             </span>
                             <span class="home__information">
-                                <i class="bxr bx-mobile bx-flip-vertical home__icon"></i> 319
-                                5598806
+                                <i class="bxr bx-mobile bx-flip-vertical home__icon phone"></i> +57 319 559 8806
                             </span>
                         </div>
                     </div>
@@ -145,22 +146,25 @@
                 <section class="social section">
                     <h2 class="section-title">Social</h2>
 
-                    <div class="social__container bd-grid">
-                        <a href="https://www.linkedin.com/in/VCastilloC2/" target="_black" class="social__link">
-                            <i class="fa-brands fa-square-linkedin social__icon"></i>
+                    <div class="social__container bd-grid"> <a href="https://www.linkedin.com/in/VCastilloC2/"
+                            target="_black" rel="noopener noreferrer nofollow" class="social__link">
+                            <i class="fa-brands fa-square-linkedin social__icon linkedin"></i>
                             @VCastilloC2
                         </a>
 
-                        <a href="https://www.facebook.com/VCastilloC2" target="_black" class="social__link">
-                            <i class="fa-brands fa-facebook social__icon"></i> @VCastilloC2
+                        <a href="https://www.facebook.com/VCastilloC2" target="_black"
+                            rel="noopener noreferrer nofollow" class="social__link">
+                            <i class="fa-brands fa-facebook social__icon facebook"></i> @VCastilloC2
                         </a>
 
-                        <a href="https://www.youtube.com/@VCastilloC2" target="_black" class="social__link">
-                            <i class="fa-brands fa-youtube social__icon"></i> @VCastilloC2
+                        <a href="https://www.youtube.com/@VCastilloC2" target="_black"
+                            rel="noopener noreferrer nofollow" class="social__link">
+                            <i class="fa-brands fa-youtube social__icon youtube"></i> @VCastilloC2
                         </a>
 
-                        <a href="https://github.com/VCastilloC2" target="_black" class="social__link">
-                            <i class="fa-brands fa-github social__icon"></i> @VCastilloC2
+                        <a href="https://github.com/VCastilloC2" target="_black" rel="noopener noreferrer nofollow"
+                            class="social__link">
+                            <i class="fa-brands fa-github social__icon github"></i> @VCastilloC2
                         </a>
                     </div>
                 </section>
@@ -222,6 +226,70 @@
 
                 <!--========== Skills  ==========-->
                 <section class="skills section" id="skills">
+                    <h2 class="section-title">Skills</h2>
+
+                    <div class="skills__content bd-grid">
+
+                        <!-- Frontend -->
+                        <ul class="skills__data">
+                            <h3 class="skills__title">Frontend</h3>
+
+                            <li class="skills__name">
+                                <i class="ri-html5-fill skills__icon html" title="HTML5"></i> HTML
+                            </li>
+                            <li class="skills__name">
+                                <i class="ri-css3-fill skills__icon css" title="CSS3"></i> CSS
+                            </li>
+                            <li class="skills__name">
+                                <i class="ri-javascript-fill skills__icon js" title="JavaScript"></i> JavaScript
+                            </li>
+                            <li class="skills__name">
+                                <i class="ri-reactjs-fill skills__icon react" title="React"></i> React
+                            </li>
+                            <li class="skills__name">
+                                <i class="ri-angularjs-fill skills__icon angular" title="Angular"></i> Angular
+                            </li>
+                        </ul>
+
+                        <!-- Backend -->
+                        <ul class="skills__data">
+                            <h3 class="skills__title">Backend</h3>
+                            <li class="skills__name">
+                                <i class="fa-brands fa-java skills__icon java" title="Java"></i> Java
+                            </li>
+                            <li class="skills__name">
+                                <i class="ri-leaf-fill skills__icon spring" title="Spring"></i> Spring
+                            </li>
+                            <li class="skills__name">
+                                <i class="fa-brands fa-python skills__icon python" title="Python"></i> Python
+                            </li>
+                        </ul>
+
+                        <!-- Databases -->
+                        <ul class="skills__data">
+                            <h3 class="skills__title">Databases</h3>
+                            <li class="skills__name">
+                                <i class="ri-database-2-fill skills__icon mysql" title="MySQL"></i> MySQL
+                            </li>
+                            <li class="skills__name">
+                                <i class="ri-database-line skills__icon mongo" title="MongoDB"></i> MongoDB
+                            </li>
+                            <li class="skills__name">
+                                <i class="ri-server-fill skills__icon redis" title="Redis"></i> Redis
+                            </li>
+                        </ul>
+
+                        <!-- Tools -->
+                        <ul class="skills__data">
+                            <h3 class="skills__title">Tools</h3>
+                            <li class="skills__name">
+                                <i class="fa-brands fa-git-alt skills__icon git" title="Git"></i> Git
+                            </li>
+                            <li class="skills__name">
+                                <i class="fa-brands fa-docker skills__icon docker" title="Docker"></i> Docker
+                            </li>
+                        </ul>
+                    </div>
                     
                 </section>
             </div>
