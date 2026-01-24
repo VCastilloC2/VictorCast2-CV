@@ -4,7 +4,7 @@
 /*===== Variables Css =====*/
 :root {
   --header-height: 3rem;
-  
+
   /*========== Colors ==========*/
   --title-color: #0B0A0A;
   --text-color: #403A3A;
@@ -34,49 +34,51 @@
   /*========== Z index ==========*/
   --z-tooltip: 10;
   --z-fixed: 100;
+
+  /*========== Social ==========*/
+  --bd-color-linkedin: #0a66c2;
+  --bd-color-facebook: #1877f2;
+  --bd-color-youtube: #ff0000;
+  --bd-color-github: #000;
+
+  /*========== Colores contacto ==========*/
+  --bd-color-location: #ff4757;
+  --bd-color-mail: #1e90ff;
+  --bd-color-phone: #2ed573;
+
+  /*==========  Frontend ==========*/
+  --bd-color-html: #E44D26;
+  --bd-color-css: #2965F1;
+  --bd-color-js: #F7DF1E;
+  --bd-color-reac: #61DAFB;
+  --bd-color-angular: #DD0031;
+
+  /*==========  Backend ==========*/
+--bd-color-java-top: #E11D2E;    /* rojo Java */
+--bd-color-java-bottom: #007396; /* azul Java */
+  --bd-color-spring: #6DB33F;
+  --bd-color-python: #FFD43B;
+
+  /*==========  Databases ==========*/
+  --bd-color-mysql: #00758F;
+  --bd-color-mongo: #47A248;
+  --bd-color-redis: #DC382D;
+
+  /*========== Tools ==========*/
+  --bd-color-git: #F05032;
+  --bd-color-docker: #2496ED;
+
 }
 
 /*========== Base ==========*/
-*, ::before {
+*,
+::before {
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
 }
-
-/*==========  Social ==========*/
-.linkedin {color: #0a66c2;}
-.facebook {color: #1877f2;}
-.youtube {color: #ff0000;}
-.github {color: #000;}
-
-/*==========  Frontend ==========*/
-.html {color: #E44D26;}
-.css {color: #2965F1;}
-.js {color: #F7DF1E;}
-.react {color: #61DAFB;}
-.angular {color: #DD0031;}
-
-/*==========  Backend ==========*/
-.java {color: #F89820;}
-.spring {color: #6DB33F;}
-.python {color: #3776AB;}
-
-/*==========  Databases ==========*/
-.mysql {color: #00758F;}
-.mongo {color: #47A248;}
-.redis {color: #DC382D;}
-
-/*========== Tools ==========*/
-.git {color: #F05032;}
-.docker {color: #2496ED;}
-
-/*========== Colores contacto ==========*/
-.location { color: #ff4757; }
-.mail { color: #1e90ff; }
-.phone { color: #2ed573; }
-
 
 /*========== Variables Dark theme ==========*/
 
@@ -92,19 +94,25 @@ html {
 
 /*========== Classes modified to reduce size and print on A4 sheet ==========*/
 
-body{
+body {
   margin: 0 0 var(--header-height);
   padding: 0;
   font-size: var(--normal-font-size);
   background-color: var(--body-color);
-  color:var(--text-color);
+  color: var(--text-color);
 }
 
-h1, h2, h3, ul, p {
+h1,
+h2,
+h3,
+ul,
+p {
   margin: 0;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   color: var(--title-color);
   font-weight: var(--font-medium);
 }
@@ -158,7 +166,7 @@ img {
   left: 0;
   z-index: var(--z-fixed);
   background-color: var(--body-color);
-  box-shadow: 0 -1px 4px rgba(0,0,0,.1);
+  box-shadow: 0 -1px 4px rgba(0, 0, 0, .1);
   transition: .3s;
 }
 
@@ -178,13 +186,13 @@ img {
     width: 100%;
     padding: 2rem 1.5rem;
     background-color: var(--body-color);
-    box-shadow: 0 1px 4px rgba(0,0,0,.1);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .1);
     z-index: var(--z-fixed);
     transition: .3s;
   }
 }
 
-.nav__logo, 
+.nav__logo,
 .nav__toggle {
   color: var(--title-color);
   font-weight: var(--font-medium);
@@ -229,7 +237,7 @@ img {
 
 /* Active menu link */
 .active-link {
-  color : var(--title-color);
+  color: var(--title-color);
 }
 
 /*========== HOME ==========*/
@@ -270,17 +278,39 @@ img {
 .home__information {
   display: flex;
   align-items: center;
+  gap: .5rem;
   font-size: var(--small-font-size);
 }
 
-.location:hover {
-  transform: scale(1.2);
-  transition: .2s ease;
+.phone {
+  transition: transform .25s ease, color .25s ease;
 }
 
-.mail:hover {
+.home__information:hover .phone {
+  color: var(--bd-color-phone);
   transform: scale(1.2);
-  transition: .2s ease;
+}
+
+.home__location:hover .home__icon {
+  color: var(--bd-color-location);
+  transform: scale(1.2);
+}
+
+.home__mail:hover .home__icon {
+  color: var(--bd-color-mail);
+  transform: scale(1.2);
+}
+
+.mail {
+  margin-right: .2rem;
+}
+
+.home__mail,
+.home__location, 
+.home__phone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .phone:hover {
@@ -290,13 +320,14 @@ img {
 
 .home__icon {
   font-size: 1.2rem;
-  margin-right: .25rem;
+  min-width: 20px;
+  transition: transform .25s ease, color .25s ease;
 }
 
 .home__button-movil {
   display: inline-block;
   border: 2px solid var(--text-color);
-  color:var(--title-color);
+  color: var(--title-color);
   padding: 1rem 2rem;
   border-radius: .25rem;
   transition: .3s;
@@ -322,14 +353,16 @@ img {
   color: var(--text-color);
 }
 
-.social__link:hover {
-  color: var(--title-color)
-}
-
 .social__icon {
   font-size: 1.2rem;
   margin-right: .25rem;
 }
+
+
+.social__link:hover .linkedin { color: var(--bd-color-linkedin); transform: scale(1.2); }
+.social__link:hover .facebook { color: var(--bd-color-facebook); transform: scale(1.2); }
+.social__link:hover .youtube  { color: var(--bd-color-youtube);  transform: scale(1.2); }
+.social__link:hover .github   { color: var(--bd-color-github);   transform: scale(1.2); }
 
 /*========== PROFILE ==========*/
 .profile__description {
@@ -362,6 +395,7 @@ img {
   background-color: var(--text-color-light);
   transform: translate(7px, 0);
 }
+
 .education__data {
   gap: .5rem;
 }
@@ -393,19 +427,17 @@ img {
   align-items: center;
 }
 
-/* Start / Inicio */
-.education__status[data-status="start"] {
-  background-color: #3498db;
-}
-
 /* In Process / En proceso */
 .education__status[data-status="process"] {
-  background-color: #f1c40f;
+  background-color: var(--bd-color-python);
+  color:var(--title-color);
 }
 
 /* Finish / Finalizado */
 .education__status[data-status="finish"] {
-  background-color: #2ecc71;
+  background-color: var(--bd-color-mongo);
+  color:var(--title-color);
+
 }
 
 /* Terminar el estado educativo*/
@@ -419,6 +451,7 @@ img {
 .skills__name {
   display: flex;
   align-items: center;
+  gap: .1rem;
   margin-bottom: var(--mb-3);
   font-size: var(--small-font-size);
 }
@@ -429,17 +462,54 @@ img {
 }
 
 .skills__icon {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   margin-right: .6rem;
-  width: 22px;
+  min-width: 24px;
+  width: 24px;
   text-align: center;
   vertical-align: middle;
   background-color: #ffff;
+  text-align: center;
+  transition: transform .25s ease, color .25s ease;
 }
 
+.skills__icon,
+.social__icon,
+.home__icon {
+  will-change: transform;
+}
+
+/*======== Skills Hovers ========*/
+
+.skills__name:hover .html    { color: var(--bd-color-html); }
+.skills__name:hover .css     { color: var(--bd-color-css); }
+.skills__name:hover .js      { color: var(--bd-color-js); }
+.skills__name:hover .react   { color: var(--bd-color-reac); }
+.skills__name:hover .angular { color: var(--bd-color-angular); }
+.skills__name:hover .java {
+  background: linear-gradient(
+    to bottom,
+    var(--bd-color-java-top),
+    var(--bd-color-java-bottom)
+  );
+  background-clip: text;           /* estándar */
+  -webkit-background-clip: text;   /* Chrome / Safari */
+  color: transparent;
+}
+.skills__name:hover .spring { color: var(--bd-color-spring); }
+.skills__name:hover .python { color: var(--bd-color-python); }
+.skills__name:hover .mysql { color: var(--bd-color-mysql); }
+.skills__name:hover .mongo { color: var(--bd-color-mongo); }
+.skills__name:hover .redis { color: var(--bd-color-redis); }
+.skills__name:hover .git    { color: var(--bd-color-git); }
+.skills__name:hover .docker { color: var(--bd-color-docker); }
+
 .skills__name:hover .skills__icon {
-  transform: scale(1.2);
-  transition: .2s ease;
+  transform: scale(1.25);
+}
+
+.skills__icon {
+  color: var(--text-color-light);
 }
 
 /*========== CERTIFICATES ==========*/
