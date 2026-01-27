@@ -44,7 +44,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-
     <!--========== Titulo ==========-->
     <title>Curriculum - VictorCast2</title>
 </head>
@@ -53,7 +52,7 @@
     <!--========== Header ==========-->
     <header class="l-header" id="header">
         <nav class="nav bd-container">
-            <a href="#" class="nav__logo">Victor</a>
+            <a href="#" class="nav__logo">Víctor José Castillo Castro</a>
 
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
@@ -119,7 +118,7 @@
                             <img src="Assets/Img/Perfil.jpg" loading="lazy" alt="Foto de Perfil de Victor Cast2"
                                 class="home__img" />
 
-                            <h1 class="home__title">Victor José Castillo Castro</h1>
+                            <h1 class="home__title">Víctor José Castillo Castro</h1>
                             <h3 class="home__profession">Backend Developert</h3>
 
                             <!-- Button to generate and download the pdf. Available for desktop. -->
@@ -149,6 +148,12 @@
                             </span>
                         </div>
                     </div>
+
+                    <!--========== Theme change button ==========-->
+                    <i class='bxr  bx-moon-stars change-theme' title="Theme" id="theme-button"></i> 
+
+                    <!--========== Button to generate and dowload the pdf. Availble for desktop. ==========-->
+                    <i class='bxr  bx-arrow-out-down-square-half generate-pdf' title="Generate PDF" id="resume-button"></i> 
                 </section>
 
                 <!--========== Social ==========-->
@@ -197,7 +202,7 @@
                         <div class="education__content">
                             <div class="education__time">
                                 <span class="education__rounder"></span>
-                                <span class="education_line"></span>
+                                <span class="education__line"></span>
                             </div>
                             <div class="education__data bd-grid">
                                 <h3 class="education__title">Web Developper</h3>
@@ -209,7 +214,7 @@
                         <div class="education__content">
                             <div class="education__time">
                                 <span class="education__rounder"></span>
-                                <span class="education_line"></span>
+                                <span class="education__line"></span>
                             </div>
                             <div class="education__data bd-grid">
                                 <h3 class="education__title">Web Developper</h3>
@@ -252,12 +257,6 @@
                             <li class="skills__name">
                                 <i class="ri-javascript-fill skills__icon js" title="JavaScript"></i> JavaScript
                             </li>
-                            <li class="skills__name">
-                                <i class="ri-reactjs-fill skills__icon react" title="React"></i> React
-                            </li>
-                            <li class="skills__name">
-                                <i class="ri-angularjs-fill skills__icon angular" title="Angular"></i> Angular
-                            </li>
                         </ul>
 
                         <!-- Backend -->
@@ -271,31 +270,6 @@
                             </li>
                             <li class="skills__name">
                                 <i class="fa-brands fa-python skills__icon python" title="Python"></i> Python
-                            </li>
-                        </ul>
-
-                        <!-- Databases -->
-                        <ul class="skills__data">
-                            <h3 class="skills__title">Databases</h3>
-                            <li class="skills__name">
-                                <i class="ri-database-2-fill skills__icon mysql" title="MySQL"></i> MySQL
-                            </li>
-                            <li class="skills__name">
-                                <i class="ri-database-line skills__icon mongo" title="MongoDB"></i> MongoDB
-                            </li>
-                            <li class="skills__name">
-                                <i class="ri-server-fill skills__icon redis" title="Redis"></i> Redis
-                            </li>
-                        </ul>
-
-                        <!-- Tools -->
-                        <ul class="skills__data">
-                            <h3 class="skills__title">Tools</h3>
-                            <li class="skills__name">
-                                <i class="fa-brands fa-git-alt skills__icon git" title="Git"></i> Git
-                            </li>
-                            <li class="skills__name">
-                                <i class="fa-brands fa-docker skills__icon docker" title="Docker"></i> Docker
                             </li>
                         </ul>
                     </div>
@@ -410,7 +384,7 @@
                 </section>
 
                 <!--========== Languages ==========-->
-                <section class="languages section">
+                <section class="languages section" id="languages">
                     <h2 class="section-title">Languages</h2>
 
                     <div class="languages__container">
@@ -426,7 +400,7 @@
                 </section>
 
                 <!--========== Interests ==========-->
-                <section class="interests section">
+                <section class="interests section" id="interests">
                     <h2 class="section-title">Interests</h2>
                     
                     <div class="interests__container bd-grid">
@@ -454,7 +428,42 @@
                             <i class='bxr  bx-gaming interests__icon video-games'></i> 
                             <span class="interests__name">Video Games</span>
                         </div>
+
+                        <div class="interests__content">
+                            <i class='bxr  bx-pi  interests__icon video-games'></i> 
+                            <span class="interests__name">Math</span>
+                        </div>
                     </div>
+                </section>
+
+                <section class="skills section" id="skills">
+                    <h2 class="section-title">Skills</h2>
+
+                    <div class="skills__content bd-grid">
+
+                        <!-- Frontend -->
+                        <ul class="skills__data">
+                            <h3 class="skills__title">Frontend</h3>
+                            <li class="skills__name">
+                                <i class="ri-reactjs-fill skills__icon react" title="React"></i> React
+                            </li>
+                            <li class="skills__name">
+                                <i class="ri-angularjs-fill skills__icon angular" title="Angular"></i> Angular
+                            </li>
+                        </ul>
+
+                        <!-- Tools -->
+                        <ul class="skills__data">
+                            <h3 class="skills__title">Tools</h3>
+                            <li class="skills__name">
+                                <i class="fa-brands fa-git-alt skills__icon git" title="Git"></i> Git
+                            </li>
+                            <li class="skills__name">
+                                <i class="fa-brands fa-docker skills__icon docker" title="Docker"></i> Docker
+                            </li>
+                        </ul>
+                    </div>
+                    
                 </section>
             </div>
         </div>
