@@ -884,15 +884,16 @@ p {
 
   /* Layout principal */
   .resume {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 2rem;
-  width: 794px;
-  min-height: auto; /* 👈 IMPORTANTE */
-  margin: 0 auto;
-  background-color: var(--container-color);
-  box-shadow: none;
-}
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 2rem;
+    width: 794px;
+    min-height: auto;
+    /* 👈 IMPORTANTE */
+    margin: 0 auto;
+    background-color: var(--container-color);
+    box-shadow: none;
+  }
 
 
   .resume__left {
@@ -1057,5 +1058,39 @@ p {
     text-align: justify;
     text-justify: inter-word;
   }
+
+  @media print {
+
+    .resume {
+      max-height: 1122px;
+      overflow: hidden;
+    }
+
+    section {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+  }
+
+  .scale-cv .languages__item {
+  margin-bottom: .5rem;
+}
+
+.scale-cv .interests__container {
+  row-gap: .5rem;
+}
+
+.scale-cv .interests__icon {
+  font-size: 1.2rem;
+}
+
+.scale-cv .section {
+  padding: .6rem 0;
+}
+
+.scale-cv .section-title {
+  margin-bottom: .5rem;
+}
 
 }
