@@ -49,6 +49,11 @@ https://victorcast2-cv.netlify.app/
 │   ├── Js/
 │   │   ├── Main.js
 │   │   └── html2pdf.bundle.min.js
-│   └── Img/
-│       └── (imágenes)
+│   ├── Img/
+│   │   └── Perfil.jpg
+│   ├── PDF/
+│   │   └── VictorCast2.pdf
+│   ├── Icon/
+│       └── CV.png
+├── LICENSE.md
 └── README.md
