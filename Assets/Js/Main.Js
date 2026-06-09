@@ -32,14 +32,13 @@ function scrollActive() {
     sections.forEach((current) => {
         const sectionHeight = current.offsetHeight;
         const sectionTop = current.offsetTop - 50;
-        const sectionId = current.getAttribute("id"); // 👈 AQUÍ ESTABA EL ERROR
+        const sectionId = current.getAttribute("id");
 
         const link = document.querySelector(
             ".nav__menu a[href*='" + sectionId + "']",
         );
 
         if (link) {
-            // 👈 evita errores si no existe el link
             if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
                 link.classList.add("active-link");
             } else {
@@ -108,31 +107,139 @@ function removeScaleCv() {
 
 /*==================== ANIMATION ====================*/
 
-/*==================== GENERATE PDF ====================*/
-// PDF generated area
-let areaCv = document.getElementById("area-cv");
+/*==================== PDF CONFIG VARIABLES ====================*/
+// Lee todas las variables desde window.ENV (archivo env.js en la raiz).
+// Si env.js no carga, usa valores por defecto para no romper la app.
+const E = window.ENV || {};
 
-let resumeButton = document.getElementById("resume-button");
+const CV_CONFIG = {
 
-// Html2pdf options
-let opt = {
-    margin: 1,
-    filename: 'Curriculum - VictorJoseCast2.pdf',
-    image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { scale: 5 },
-    jsPDF: { format: 'a4', orientation: 'portrait' }
+    /*---------- Datos personales ----------*/
+    nombre:    E.NOMBRE    || '',
+    cargo:     E.CARGO     || '',
+    ubicacion: E.UBICACION || '',
+    email:     E.EMAIL     || '',
+    telefono:  E.TELEFONO  || '',
+
+    /*---------- Redes sociales ----------*/
+    linkedin:  E.LINKEDIN  || '#',
+    github:    E.GITHUB    || '#',
+    youtube:   E.YOUTUBE   || '#',
+    facebook:  E.FACEBOOK  || '#',
+
+    /*---------- URL del portafolio / QR ----------*/
+    portfolioUrl: E.PORTFOLIO_URL || '',
+
+    /*---------- Referencias ----------*/
+    referencias: E.REFERENCIAS || [],
+
+    /*---------- Configuracion del PDF ----------*/
+    pdf: {
+        filename:    E.PDF_FILENAME    || 'Curriculum.pdf',
+        margin:      E.PDF_MARGIN      || [0, 0, 0, 0],
+        imageQuality:E.PDF_QUALITY     || 0.98,
+        scale:       E.PDF_SCALE       || 2,
+        pageFormat:  E.PDF_FORMAT      || 'letter',
+        orientation: E.PDF_ORIENTATION || 'portrait',
+    },
 };
 
+/*==================== GENERATE PDF ====================*/
+const areaCv      = document.getElementById('area-cv');
+const resumeButton = document.getElementById('resume-button');
 
-// Function to call areaCv and Html2Pdf options
+const pdfOptions = {
+    margin:      CV_CONFIG.pdf.margin,
+    filename:    CV_CONFIG.pdf.filename,
+    image:       { type: 'jpeg', quality: CV_CONFIG.pdf.imageQuality },
+    html2canvas: {
+        scale:           CV_CONFIG.pdf.scale,
+        useCORS:         true,
+        letterRendering: true,
+        scrollX:         0,
+        scrollY:         -window.scrollY,
+        // Ancho fijo = ancho del .resume (816px) para que html2canvas
+        // capture exactamente el layout de dos columnas
+        windowWidth:     document.documentElement.scrollWidth,
+    },
+    jsPDF: {
+        unit:        'mm',
+        format:      CV_CONFIG.pdf.pageFormat,
+        orientation: CV_CONFIG.pdf.orientation,
+    },
+};
+
 function generateResume() {
-    html2pdf().set(opt).from(areaCv).save().then(removeScaleCv);
+    // Recalcular scrollY en el momento de generar
+    pdfOptions.html2canvas.scrollY = -window.scrollY;
+    html2pdf()
+        .set(pdfOptions)
+        .from(areaCv)
+        .save()
+        .then(removeScaleCv);
 }
 
-// When the button is clicked, it executes the three functions
-resumeButton.addEventListener("click", () => {
-    // 1. The class .scale-cv is added to the body, where it reduces the size of the elements
+resumeButton.addEventListener('click', () => {
     scaleCv();
-    // 2. The PDF is generated
-    generateResume();
+    // Pequeño delay para que el CSS de scale-cv se aplique antes del render
+    setTimeout(generateResume, 300);
 });
+
+/*==================== INYECTAR DATOS DESDE window.ENV ====================*/
+function injectCvData() {
+    const set = (id, val) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = val;
+    };
+
+    // Datos personales
+    set('cv-ubicacion', CV_CONFIG.ubicacion);
+    set('cv-email',     CV_CONFIG.email);
+    set('cv-telefono',  CV_CONFIG.telefono);
+
+    // Referencias: genera las tarjetas desde ENV.REFERENCIAS
+    const refContainer = document.getElementById('referencias-container');
+    if (refContainer && CV_CONFIG.referencias.length) {
+        refContainer.innerHTML = CV_CONFIG.referencias.map(ref => `
+            <div class="references__content bd-grid">
+                <span class="references__subtitle">${ref.cargo}</span>
+                <h3 class="references__title">${ref.nombre}</h3>
+                <ul class="references__contact">
+                    <li>Phone: ${ref.telefono}</li>
+                    <li>Email: ${ref.email}</li>
+                </ul>
+            </div>
+        `).join('');
+    }
+}
+
+/*==================== GENERAR QR DESDE CV_CONFIG ====================*/
+// Usa la API de QuickChart para generar un QR escaneable como imagen PNG.
+// Solo cambia CV_CONFIG.portfolioUrl para actualizar el QR.
+function generateQR() {
+    const container = document.getElementById('qr-canvas');
+    const label     = document.getElementById('qr-label');
+    if (!container) return;
+
+    // SIEMPRE negro sobre blanco — los lectores de celular no soportan QR invertido
+    const encoded = encodeURIComponent(CV_CONFIG.portfolioUrl);
+    const apiUrl  = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encoded}&bgcolor=ffffff&color=000000&margin=8&ecc=H`;
+
+    const img         = document.createElement('img');
+    img.src           = apiUrl;
+    img.alt           = 'QR Portafolio';
+    img.width         = 160;
+    img.height        = 160;
+    img.crossOrigin   = 'anonymous';
+    img.style.cssText = 'display:block; border-radius:4px;';
+    img.id            = 'qr-img';
+
+    container.replaceWith(img);
+
+    if (label) label.textContent = CV_CONFIG.portfolioUrl;
+}
+
+// Ejecutar directamente — los scripts estan al final del body
+// por lo que el DOM ya esta listo cuando este codigo corre
+injectCvData();
+generateQR();

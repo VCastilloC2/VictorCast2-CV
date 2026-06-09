@@ -1,0 +1,12 @@
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+
+### Variables de entorno ###
+env.js
+
+### VS Code ###
+.vscode/

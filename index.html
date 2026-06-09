@@ -145,19 +145,20 @@
                         <div class="home__address bd-grid">
                             <span class="home__information">
                                 <div class="home__location">
-                                    <i class="bxr bx-location home__icon location"></i> Urb Villas De La
-                                    Candelaria - Cartagena de Indias, Colombia
+                                    <i class="bxr bx-location home__icon location"></i>
+                                    <span id="cv-ubicacion"></span>
                                 </div>
                             </span>
                             <span class="home__information">
                                 <div class="home__mail">
                                     <i class="bxr bx-envelope-alt home__icon mail"></i>
-                                    castillocastrovictorjose@hotmail.com
+                                    <span id="cv-email"></span>
                                 </div>
                             </span>
                             <span class="home__information">
                                 <div class="home__phone">
-                                    <i class="bxr bx-mobile bx-flip-vertical home__icon phone"></i> +57 319 559 8806
+                                    <i class="bxr bx-mobile bx-flip-vertical home__icon phone"></i>
+                                    <span id="cv-telefono"></span>
                                 </div>
                             </span>
                         </div>
@@ -216,6 +217,15 @@
                         creativa de problemas, lo que me permite articular valor técnico en entornos ágiles y adaptarme
                         con agilidad a los desafíos.
                     </p>
+                </section>
+
+                <!--========== QR Code ==========-->
+                <section class="qr section">
+                    <h2 class="section-title">Portafolio</h2>
+                    <div class="qr__container">
+                        <canvas id="qr-canvas"></canvas>
+                        <span class="qr__label" id="qr-label"></span>
+                    </div>
                 </section>
 
                 <!--========== Educación ==========-->
@@ -607,24 +617,8 @@
                 <section class="references section" id="references">
                     <h2 class="section-title">Referencias</h2>
 
-                    <div class="references__contianer bd-grid">
-                        <div class="references__content bd-grid">
-                            <span class="references__subtitle">Sr. Director</span>
-                            <h3 class="references__title">Mr. Clay Doe</h3>
-                            <ul class="references__contact">
-                                <li>Phone: 1234567890</li>
-                                <li>Email: user@mail.com</li>
-                            </ul>
-                        </div>
-
-                        <div class="references__content bd-grid">
-                            <span class="references__subtitle">Sr. Director</span>
-                            <h3 class="references__title">Mr. Clay Doe</h3>
-                            <ul class="references__contact">
-                                <li>Phone: 1234567890</li>
-                                <li>Email: user@mail.com</li>
-                            </ul>
-                        </div>
+                    <div class="references__contianer bd-grid" id="referencias-container">
+                        
                     </div>
                 </section>
 
@@ -700,11 +694,14 @@
         <i class='bxr  bx-arrow-up-stroke scrolltop__icon'></i>
     </a>
 
+    <!--========== ENV (variables de entorno — cargar PRIMERO) ==========-->
+    <script src="env.js"></script>
+
     <!--========== HTML2PDF ==========-->
-    <script src="Assets/Js/html2pdf.bundle.min.Js" defer></script>
+    <script src="Assets/Js/html2pdf.bundle.min.Js"></script>
 
     <!--========== MAIN JS ==========-->
-    <script type="module" src="Assets/Js/Main.Js" defer></script>
+    <script src="Assets/Js/Main.Js"></script>
 
     <!--========== Icons JS ==========-->
     <script src="https://kit.fontawesome.com/f5df48790d.js" crossorigin="anonymous" defer></script>

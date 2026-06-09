@@ -141,22 +141,30 @@ body.scale-cv {
   color: var(--title-color);
 }
 
-/*========== Classes modified to reduce size and print on A4 sheet ==========*/
+/*========== Classes modified to reduce size and print on Letter sheet ==========*/
 .scale-cv .change-theme,
 .scale-cv .generate-pdf {
   display: none;
 }
 
 .scale-cv .bd-container {
-  max-width: 595px;
+  max-width: 816px;
+  width: 816px;
+  margin: 0 auto;
+}
+
+.scale-cv .resume {
+  width: 816px;
+  gap: 0;
 }
 
 .scale-cv .section {
-  padding: 1rem 0 .60rem;
+  padding: .5rem 0 .3rem;
 }
 
 .scale-cv .section-title {
-  margin-bottom: .75rem;
+  margin-bottom: .5rem;
+  letter-spacing: .2rem;
 }
 
 .scale-cv .resume__left,
@@ -165,64 +173,97 @@ body.scale-cv {
 }
 
 .scale-cv .home__img {
-  width: 90px;
-  height: 90px;
+  width: 80px;
+  height: 80px;
 }
 
 .scale-cv .home__container {
-  gap: 1.5rem;
+  gap: .8rem;
 }
 
 .scale-cv .home__data {
-  gap: .25rem;
+  gap: .15rem;
 }
 
 .scale-cv .home__address,
 .scale-cv .social__container {
-  gap: .75rem;
+  gap: .4rem;
 }
 
 .scale-cv .home__icon,
 .scale-cv .social__icon,
 .scale-cv .interests__icon {
-  font-size: 1rem;
+  font-size: .9rem;
 }
 
 .scale-cv .education__container,
 .scale-cv .experience__container,
 .scale-cv .certificate__container {
-  gap: 1rem;
+  gap: .5rem;
 }
 
 .scale-cv .education__time,
 .scale-cv .experience__time {
-  padding-right: .5rem;
+  padding-right: .4rem;
 }
 
 .scale-cv .education__rounder,
 .scale-cv .experience__rounder {
-  width: 11px;
-  height: 11px;
-  margin-top: .22rem;
+  width: 10px;
+  height: 10px;
+  margin-top: .18rem;
 }
 
-.scale-cv .education__line {
+.scale-cv .education__line,
+.scale-cv .experience__line {
   width: 1px;
-  height: 110%;
-  transform: translate(5px, 0);
+  transform: translate(4px, 0);
 }
 
 .scale-cv .education__data,
 .scale-cv .experience__data {
-  gap: .25rem
+  gap: .1rem;
 }
 
 .scale-cv .skills__name {
-  margin-bottom: var(--mb-1);
+  margin-bottom: .3rem;
 }
 
 .scale-cv .interests__container {
-  column-gap: 2.5rem;
+  column-gap: 1.5rem;
+  row-gap: .3rem;
+}
+
+.scale-cv .interests__icon {
+  font-size: .95rem;
+}
+
+.scale-cv .languages__item {
+  margin-bottom: .25rem;
+}
+
+.scale-cv .languages__bar {
+  height: 2px;
+}
+
+.scale-cv .languages__row {
+  margin-bottom: .05rem;
+}
+
+.scale-cv .education__container,
+.scale-cv .experience__container,
+.scale-cv .certificate__container {
+  gap: .5rem;
+}
+
+.scale-cv .experience__description,
+.scale-cv .certificate__description,
+.scale-cv .profile__description {
+  line-height: 1.3;
+}
+
+.scale-cv section {
+  margin-bottom: .4rem;
 }
 
 body {
@@ -804,6 +845,59 @@ p {
   font-size: var(--h3-font-size);
 }
 
+/*========== QR CODE ==========*/
+.qr__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .6rem;
+  padding: 1rem;
+  background-color: #ffffff;
+  border-radius: .75rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Aplica a la <img> generada por JS */
+#qr-img {
+  border-radius: .35rem;
+  display: block;
+  width: 160px;
+  height: 160px;
+}
+
+.qr__label {
+  font-size: .72rem;
+  color: #555555;
+  word-break: break-all;
+  text-align: center;
+  width: 100%;
+  line-height: 1.4;
+  font-family: monospace;
+}
+
+/* Modo oscuro: el QR sigue siendo negro/blanco pero el contenedor
+   muestra un marco blanco que lo hace destacar sobre el fondo oscuro */
+body.dark-theme .qr__container {
+  background-color: #ffffff;
+  border: 3px solid #ffffff;
+  box-shadow: 0 0 0 4px #444;
+}
+
+body.dark-theme .qr__label {
+  color: #aaaaaa;
+}
+
+/* En scale-cv el QR se adapta pero sigue legible */
+.scale-cv #qr-img {
+  width: 120px !important;
+  height: 120px !important;
+}
+
+.scale-cv .qr__label {
+  font-size: .6rem;
+}
+
 /*========== INTERESTS ==========*/
 .interests__container {
   grid-template-columns: repeat(3, 1fr);
@@ -908,11 +1002,12 @@ p {
   }
 
   /* Contenedor centrado */
+  /* Carta: 216 mm → 816px a 96 dpi */
   .bd-container {
     margin-left: auto;
     margin-right: auto;
-    max-width: 794px;
-    /* A4 real */
+    max-width: 816px;
+    /* Letter (Carta) real */
   }
 
   /* Ocultar elementos no imprimibles */
@@ -926,11 +1021,12 @@ p {
   }
 
   /* Layout principal */
+  /* 816px = 8.5 pulgadas a 96dpi (Carta / Letter) */
   .resume {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
     gap: 2rem;
-    width: 794px;
+    width: 816px;
     min-height: auto;
     /* 👈 IMPORTANTE */
     margin: 0 auto;
@@ -1117,19 +1213,20 @@ p {
   }
 
   .scale-cv .languages__item {
-  margin-bottom: .5rem;
+  margin-bottom: .25rem;
 }
 
 .scale-cv .interests__container {
-  row-gap: .5rem;
+  row-gap: .3rem;
 }
 
 .scale-cv .interests__icon {
-  font-size: 1.2rem;
+  font-size: .95rem;
 }
 
 .scale-cv .section {
-  padding: .6rem 0;
+  padding: .5rem 0 .3rem;
+  margin-bottom: .4rem;
 }
 
 .scale-cv .section-title {
