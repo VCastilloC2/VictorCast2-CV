@@ -1,13 +1,3 @@
-/*
- * ============================================================
- *  env.js  —  Variables de entorno del CV
- * ============================================================
- *  ⚠️  AGREGA "env.js" a tu .gitignore para no subir datos
- *      personales a GitHub.
- *  Para actualizar cualquier dato, solo edita este archivo.
- * ============================================================
- */
-
 window.ENV = {
 
     /* ── Datos personales ─────────────────────────────────── */

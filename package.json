@@ -1,0 +1,53 @@
+{
+  "name": "cv-generator",
+  "version": "1.0.0",
+  "description": "Generador profesional de CV en PDF optimizado - Victor Jose Castillo Castro",
+  "main": "Assets/Js/Main.Js",
+  "scripts": {
+    "start": "http-server",
+    "dev": "http-server -p 8000 -c-1",
+    "server": "python -m http.server 8000",
+    "build": "echo 'No build required - Static files only'",
+    "test": "echo 'No tests configured'",
+    "deploy": "netlify deploy"
+  },
+  "keywords": [
+    "cv",
+    "resume",
+    "pdf",
+    "generator",
+    "html2pdf",
+    "job",
+    "interview",
+    "backend",
+    "developer"
+  ],
+  "author": {
+    "name": "Víctor José Castillo Castro",
+    "email": "castillocastrovictorjose@hotmail.com",
+    "url": "https://victorcast2-cv.netlify.app/"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VictorCast2/CV-Generator"
+  },
+  "bugs": {
+    "url": "https://github.com/VictorCast2/CV-Generator/issues"
+  },
+  "homepage": "https://github.com/VictorCast2/CV-Generator#readme",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "dependencies": {
+    "html2pdf.js": "^0.10.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ]
+}
