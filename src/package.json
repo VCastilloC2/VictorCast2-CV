@@ -4,6 +4,7 @@
   "private": true,
   "description": "Professional CV Generator",
   "dependencies": {
+    "@vercel/speed-insights": "^2.0.0",
     "html2pdf.js": "^0.10.1"
   },
   "devDependencies": {
