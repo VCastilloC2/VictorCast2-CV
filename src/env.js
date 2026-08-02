@@ -14,7 +14,7 @@ window.ENV = {
     FACEBOOK:  'https://www.facebook.com/@VCastilloC2',
 
     /* ── URL del portafolio (apunta el QR aquí) ───────────── */
-    PORTFOLIO_URL: 'https://victorcast2-cv.netlify.app/',
+    PORTFOLIO_URL: 'https://victor-cast2-cv.vercel.app/',
 
     /* ── Referencias ──────────────────────────────────────── */
     REFERENCIAS: [
