@@ -1,6 +1,6 @@
 # 📄 CV Web – Victor José Castillo Castro
 
-Este proyecto es un **Currículum Vitae Web interactivo**, desarrollado con **HTML, CSS y JavaScript**, diseñado para visualizarse correctamente en navegador y permitir la **exportación a PDF** en formato A4.
+Este proyecto es un **Currículum Vitae Web interactivo**, desarrollado con **HTML, CSS y JavaScript**, diseñado para visualizarse correctamente en navegador y permitir la **exportación a PDF** en formato Carta.
 
 El CV está estructurado de forma modular, facilitando la personalización de secciones como experiencia, educación, habilidades y más.
 
@@ -24,7 +24,7 @@ El CV está estructurado de forma modular, facilitando la personalización de se
 ## 🚀 Proyecto desplegado
 
 🔗 **Ver CV en línea:**  
-https://victorcast2-cv.netlify.app/
+https://victor-cast2-cv.vercel.app
 
 
 ## 🛠️ Tecnologías Utilizadas
